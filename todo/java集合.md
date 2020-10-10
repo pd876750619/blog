@@ -59,3 +59,24 @@ transient Object[] elementData;
         modCount++;
     }
 ```
+
+## Set
+
+### HashSet
+
+```java
+//底层用HashMap实现
+private transient HashMap<E,Object> map;
+//用于put到map中的常量
+private static final Object PRESENT = new Object();
+```
+
+奇特：
+
+构造方法-LinkedHashMap实现，包私有构造方法，为LinkedHashSet使用
+
+```java
+HashSet(int initialCapacity, float loadFactor, boolean dummy) {
+    map = new LinkedHashMap<>(initialCapacity, loadFactor);
+}
+```

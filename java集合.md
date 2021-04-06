@@ -5,8 +5,8 @@
 ### ArrayList
 
 ```java
-		//内部使用对象数组持有对象
-		transient Object[] elementData; 
+//内部使用对象数组持有对象
+transient Object[] elementData; 
 
     private void grow(int minCapacity) {
       //扩容至指定最小容量
@@ -60,46 +60,6 @@
     }
 ```
 
-<<<<<<< HEAD
-### LinkedList
-
-```java
-transient int size = 0;
-
-/**
- * Pointer to first node.
- * (first == null && last == null) || (first.prev == null && first.item != null) 永为真
- */
-transient Node<E> first;
-
-/**
- * Pointer to last node.
- *  (first == null && last == null) || (last.next == null && last.item != null) 永为真
- */
-transient Node<E> last;
-
-		Node<E> node(int index) {
-        //通过index判断从哪一边开始遍历，提高性能
-
-        if (index < (size >> 1)) {
-            Node<E> x = first;
-            for (int i = 0; i < index; i++)
-                x = x.next;
-            return x;
-        } else {
-            Node<E> x = last;
-            for (int i = size - 1; i > index; i--)
-                x = x.prev;
-            return x;
-        }
-    }
-```
-
-## Map
-
-### HashMap
-
-=======
 ## Set
 
 ### HashSet
@@ -120,4 +80,3 @@ HashSet(int initialCapacity, float loadFactor, boolean dummy) {
     map = new LinkedHashMap<>(initialCapacity, loadFactor);
 }
 ```
->>>>>>> refs/remotes/origin/master
